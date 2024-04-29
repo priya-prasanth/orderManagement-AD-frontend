@@ -8,7 +8,7 @@ const SalesStatistics = () => {
           <h5 className="card-title">Sales & Products Statistics</h5>
           <img
             style={{ width: "100%", height: "500px", objectFit: "contain" }}
-            src="src/assets/images/statistics2.jpg"
+            src="https://stunning-puffpuff-7e6495.netlify.app/src/assets/images/statistics2.jpg"
           />
         </article>
       </div>
