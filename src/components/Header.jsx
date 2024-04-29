@@ -85,25 +85,27 @@ const Header = () => {
                 alt="User"
               />
             </Link> */}
-            <div className="btn-group">
-              <Dropdown>
-                <Dropdown.Toggle className="dropdown-basic">
-                  {/* <i className="fas fa-user"></i> */}
-                  <img
-                    className="img-xs rounded-circle"
-                    src="\src\assets\images\favicon.png"
-                    alt="User"
-                  />
-                </Dropdown.Toggle>
+          <div className="btn-group">
+            <Dropdown>
+              <Dropdown.Toggle className="dropdown-basic">
+                {/* <i className="fas fa-user"></i> */}
+                <img
+                  className="img-xs rounded-circle"
+                  src="https://stunning-puffpuff-7e6495.netlify.app/src/assets/images/favicon.png"
+                  alt="User"
+                />
+              </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <Dropdown.Item href="/">My Profile</Dropdown.Item>
-                  <Dropdown.Item href="#">Settings</Dropdown.Item>
-                  <Dropdown.Item href="/login" onClick={logoutHandler}>Logout</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </div>
-            {/* <div className="dropdown-menu dropdown-menu-end">
+              <Dropdown.Menu>
+                <Dropdown.Item href="/">My Profile</Dropdown.Item>
+                <Dropdown.Item href="#">Settings</Dropdown.Item>
+                <Dropdown.Item href="/login" onClick={logoutHandler}>
+                  Logout
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+          {/* <div className="dropdown-menu dropdown-menu-end">
               <Link className="dropdown-item" to="/">
                 My profile
               </Link>
