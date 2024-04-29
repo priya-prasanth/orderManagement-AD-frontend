@@ -27,10 +27,10 @@ export const listOrders = () => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://localhost:4000/api/orders/all`,
+      `https://ordermanagement-ad-backend.onrender.com/api/orders/all`,
       config
     );
-     console.log("data", data);
+    console.log("data", data);
 
     dispatch({ type: ORDER_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -48,7 +48,6 @@ export const listOrders = () => async (dispatch, getState) => {
   }
 };
 
-
 // ORDER DETAILS
 export const getOrderDetails = (id) => async (dispatch, getState) => {
   try {
@@ -65,7 +64,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://localhost:4000/api/orders/${id}`,
+      `https://ordermanagement-ad-backend.onrender.com/api/orders/${id}`,
       config
     );
     console.log(data);
@@ -101,7 +100,8 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:4000/api/orders/${order._id}/delivered`,{},
+      `https://ordermanagement-ad-backend.onrender.com/api/orders/${order._id}/delivered`,
+      {},
       config
     );
     dispatch({ type: ORDER_DELIVERED_SUCCESS, payload: data });
@@ -119,4 +119,3 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
     });
   }
 };
- 
