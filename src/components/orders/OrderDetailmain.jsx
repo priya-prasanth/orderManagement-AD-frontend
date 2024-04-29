@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import OrderDetailInfo from "./OrderDetailInfo.jsx";
 import OrderDetailProducts from "./OrderDetailProducts.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { getOrderDetails } from "../../Redux/Actions/OrderActions.js";
+import {
+  deliverOrder,
+  getOrderDetails,
+} from "../../Redux/Actions/OrderActions.js";
 import Loading from "../LoadingError/Loading.jsx";
 import Message from "../LoadingError/Error.jsx";
 import moment from "moment";
@@ -46,7 +49,7 @@ const OrderDetailmain = (props) => {
                 <span>
                   <i className="far fa-calender-alt mx-2"></i>
                   <b className="text-white">
-                    {moment(order.createAt).calendar()}
+                    {moment(order.createdAt).format("MMM Do YYYY")}
                   </b>
                 </span>
                 <br />
@@ -85,7 +88,7 @@ const OrderDetailmain = (props) => {
                   {order.isDelivered ? (
                     <button className="btn btn-success col-12">
                       DELIVERED AT ({" "}
-                      {moment(order.isDeliveredAt).format("MMM Do YYY")})
+                      {moment(order.isDeliveredAt).format("MMM Do YYYY")})
                     </button>
                   ) : (
                     <>

@@ -2,16 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const OrderDetailProducts = (props) => {
-  const { order, loading } = props
-  
+  const { order, loading } = props;
+
   if (!loading) {
     // calculate price
     const addDecimals = (num) => {
-      return (Math.round(num*100)/100).toFixed(2)
-    }
-    order.itemsPrice = addDecimals(
-      order.orderItems.reduce((acc,item)=>acc+item.price *item.qty,0)
-    )
+      return (Math.round(num * 100) / 100).toFixed(2);
+    };
+    // order.itemsPrice = addDecimals(
+    //   order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+    // );
   }
   return (
     <table className="table border table-lg">
@@ -43,7 +43,7 @@ const OrderDetailProducts = (props) => {
             </td>
             <td>{item.price}</td>
             <td>{item.qty}</td>
-            <td className="text-end">{item.qty * item.price}</td>
+            <td className="text-end">$ {item.qty * item.price}</td>
           </tr>
         ))}
 
@@ -65,19 +65,15 @@ const OrderDetailProducts = (props) => {
               <dl className="dlist">
                 <dt className="text-muted">Status:</dt>
                 <dd>
-                  {
-                    order.isPaid ? (
+                  {order.isPaid ? (
                     <span className="badge rounded-pill alert alert-success text-success">
                       Payment done
                     </span>
-                    )
-                    :
-                    (
+                  ) : (
                     <span className="badge rounded-pill alert alert-danger text-danger">
                       Not Paid
                     </span>
-                    )
-                  }
+                  )}
                 </dd>
               </dl>
             </article>

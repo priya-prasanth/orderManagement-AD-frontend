@@ -42,7 +42,7 @@ const OrderDetailInfo = (props) => {
               Address:{order.shippingAddress.city} <br />
               {order.shippingAddress.address}
               <br />
-              {order.shippingAddress.postalCode}
+              {order.shippingAddress.postalCode}  
             </p>
           </div>
         </article>

@@ -33,8 +33,7 @@ export const orderDetailsReducer = (
     case ORDER_DETAILS_REQUEST:
       return { ...state, loading: true };
     case ORDER_DETAILS_SUCCESS:
-      console.log(action.payload);
-      return { loading: false, data: action.payload };
+      return { loading: false, order: action.payload };
     case ORDER_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -49,7 +48,7 @@ export const orderDeliveredReducer = (state = {}, action) => {
       return { loading: true };
     case ORDER_DELIVERED_SUCCESS:
       // console.log(action.payload);
-      return { loading: false, success:true };
+      return { loading: false, success: true };
     case ORDER_DELIVERED_FAIL:
       return { loading: false, error: action.payload };
     case ORDER_DELIVERED_RESET:

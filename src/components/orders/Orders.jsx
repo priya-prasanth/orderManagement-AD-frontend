@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import moment from "moment";
-import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from '../../Redux/Actions/ProductActions';
-import { listOrders } from '../../Redux/Actions/OrderActions';
-
-
-
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../../Redux/Actions/ProductActions";
+import { listOrders } from "../../Redux/Actions/OrderActions";
 
 const Orders = (props) => {
-   const { orders } = props;
+  const { orders } = props;
   // const dispatch = useDispatch();
 
   // const userLogin = useSelector((state) => state.userLogin);
@@ -20,7 +17,7 @@ const Orders = (props) => {
   //     dispatch(listOrders());
   //   }
   // }, [dispatch, userInfo]);
-  
+
   return (
     <table className="table">
       <thead>
@@ -43,7 +40,7 @@ const Orders = (props) => {
               <b>{order.user.name}</b>
             </td>
             <td>{order.user.email}</td>
-            <td>{order.totalPrice}</td>
+            <td>${order.totalPrice}</td>
             <td>
               {/* format("MMM Do YY") */}
 
@@ -57,7 +54,7 @@ const Orders = (props) => {
                 </span>
               )}
             </td>
-            <td>{moment(order.createAt).calendar()}</td>
+            <td>{moment(order.createdAt).format("MMM Do YYYY")}</td>
             <td>
               {order.isDelivered ? (
                 <span className="badge rounded-pill text-bg-success p-2 col-12">
