@@ -91,7 +91,7 @@ const Header = () => {
                 {/* <i className="fas fa-user"></i> */}
                 <img
                   className="img-xs rounded-circle"
-                  src="https://stunning-puffpuff-7e6495.netlify.app/src/assets/images/favicon.png"
+                  src="/images/favicon.png"
                   alt="User"
                 />
               </Dropdown.Toggle>
