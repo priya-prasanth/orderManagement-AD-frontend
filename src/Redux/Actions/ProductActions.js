@@ -34,7 +34,10 @@ export const listProducts = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`http://localhost:4000/api/products/all`, config);
+    const { data } = await axios.get(
+      `https://ordermanagement-ad-backend.onrender.com/api/products/all`,
+      config
+    );
 
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -68,7 +71,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
     };
 
     await axios.delete(
-      `http://localhost:4000/api/products/${id}`,
+      `https://ordermanagement-ad-backend.onrender.com/api/products/${id}`,
       config
     );
 
@@ -103,8 +106,9 @@ export const createProduct = (name, price, description, image, countInStock) => 
       },
     };
 
-    const {data} = await axios.post(
-      `http://localhost:4000/api/products/`, { name, price, description, image, countInStock },
+    const { data } = await axios.post(
+      `https://ordermanagement-ad-backend.onrender.com/api/products/`,
+      { name, price, description, image, countInStock },
       config
     );
  
@@ -128,7 +132,9 @@ export const createProduct = (name, price, description, image, countInStock) => 
 export const editProduct = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_EDIT_REQUEST });
-    const { data } = await axios.get(`http://localhost:4000/api/products/${id}`);
+    const { data } = await axios.get(
+      `https://ordermanagement-ad-backend.onrender.com/api/products/${id}`
+    );
     dispatch({ type: PRODUCT_EDIT_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -161,8 +167,8 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       },
     };
 
-    const {data} = await axios.put(
-      `http://localhost:4000/api/products/${product._id}`, 
+    const { data } = await axios.put(
+      `https://ordermanagement-ad-backend.onrender.com/api/products/${product._id}`,
       product,
       config
     );

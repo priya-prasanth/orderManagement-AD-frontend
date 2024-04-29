@@ -1,5 +1,5 @@
 import axios from "axios";
-import {toast} from "react-toastify";
+import { toast } from "react-toastify";
 import {
   USER_LIST_FAIL,
   USER_LIST_REQUEST,
@@ -11,15 +11,14 @@ import {
   USER_LOGOUT,
 } from "../Constants/UserConstants.js";
 
-
 // LOGIN
 export const login = (email, password) => async (dispatch) => {
   const ToastObjects = {
     pauseOnFocusLoss: false,
     draggable: false,
     pauseOnHover: false,
-    autoClose:2000,
-  }
+    autoClose: 2000,
+  };
   try {
     dispatch({ type: USER_LOGIN_REQUEST });
 
@@ -30,7 +29,7 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `http://localhost:4000/api/users/login`,
+      `https://ordermanagement-ad-backend.onrender.com/api/users/login`,
       { email, password },
       config
     );
@@ -38,12 +37,11 @@ export const login = (email, password) => async (dispatch) => {
     if (!data.isAdmin === true) {
       toast.error("You are not Admin", ToastObjects);
       dispatch({
-    type:USER_LOGIN_FAIL
-  })
-} else {
-    dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
-}
-  
+        type: USER_LOGIN_FAIL,
+      });
+    } else {
+      dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
+    }
 
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
@@ -56,7 +54,7 @@ export const login = (email, password) => async (dispatch) => {
     }
     dispatch({
       type: USER_LOGIN_FAIL,
-      payload:message,        
+      payload: message,
     });
   }
 };
@@ -69,7 +67,7 @@ export const logout = () => (dispatch) => {
 };
 
 // ALL USER
-export const listUser = () => async (dispatch,getState) => {
+export const listUser = () => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_LIST_REQUEST });
 
@@ -79,15 +77,17 @@ export const listUser = () => async (dispatch,getState) => {
 
     const config = {
       headers: {
-        Authorization:`Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
     const { data } = await axios.get(
-      `http://localhost:4000/api/users`, config);
-    
+      `https://ordermanagement-ad-backend.onrender.com/api/users`,
+      config
+    );
+
     dispatch({ type: USER_LIST_SUCCESS, payload: data });
-} catch (error) {
+  } catch (error) {
     const message =
       error.response && error.response.data.message
         ? error.response.data.message
@@ -97,8 +97,7 @@ export const listUser = () => async (dispatch,getState) => {
     }
     dispatch({
       type: USER_LIST_FAIL,
-      payload:message,        
+      payload: message,
     });
   }
 };
-
