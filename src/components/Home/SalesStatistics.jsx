@@ -1,5 +1,5 @@
 import React from "react";
-import statistics2img from "../../assets/images/statistics2";
+import statistics2img from "../../assets/images/statistics2.jpg";
 
 const SalesStatistics = () => {
   return (
