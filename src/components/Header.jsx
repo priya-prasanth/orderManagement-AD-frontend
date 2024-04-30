@@ -4,7 +4,7 @@ import $ from "jquery";
 import { useDispatch } from "react-redux";
 import { logout } from "../Redux/Actions/userActions";
 import Dropdown from "react-bootstrap/Dropdown";
-
+import favimg from "../assets/images/favicon.png";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -91,7 +91,7 @@ const Header = () => {
                 {/* <i className="fas fa-user"></i> */}
                 <img
                   className="img-xs rounded-circle"
-                  src="/images/favicon.png"
+                  src={favimg}
                   alt="User"
                 />
               </Dropdown.Toggle>
