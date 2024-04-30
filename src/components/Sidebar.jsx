@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import adLogo from "../assets/images/Admin logo.png";
 
 const Sidebar = () => {
   return (
@@ -8,7 +9,7 @@ const Sidebar = () => {
         <div className="aside-top">
           <Link to="/" className="brand-wrap">
             <img
-              src="/src/assets/images/Admin logo.png"
+              src={adLogo}
               style={{ height: "46" }}
               className="logo"
               alt="dashboard template"
