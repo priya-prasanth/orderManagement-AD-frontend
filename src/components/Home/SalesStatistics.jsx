@@ -1,4 +1,5 @@
 import React from "react";
+import statistics2img from "../../assets/images/statistics2";
 
 const SalesStatistics = () => {
   return (
@@ -8,7 +9,7 @@ const SalesStatistics = () => {
           <h5 className="card-title">Sales & Products Statistics</h5>
           <img
             style={{ width: "100%", height: "500px", objectFit: "contain" }}
-            src="https://stunning-puffpuff-7e6495.netlify.app/src/assets/images/statistics2.jpg"
+            src={statistics2img}
           />
         </article>
       </div>
