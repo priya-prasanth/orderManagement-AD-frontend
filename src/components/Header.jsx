@@ -16,7 +16,7 @@ const Header = () => {
       $(offcanvas_id).toggleClass("show");
     });
 
-    $(".btn-aside-minimize").on("click", function () {
+    $(".btn-asidminimizee-").on("click", function () {
       if (window.innerWidth < 768) {
         $("body").removeClass("aside-mini");
         $(".navbar-aside").removeClass("show");
@@ -97,14 +97,15 @@ const Header = () => {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="/">My Profile</Dropdown.Item>
-                <Dropdown.Item href="#">Settings</Dropdown.Item>
+                {/* <Dropdown.Item href="/login">Login</Dropdown.Item> */}
+                <Dropdown.Item href="/register">Register</Dropdown.Item>
                 <Dropdown.Item href="/login" onClick={logoutHandler}>
                   Logout
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </div>
+
           {/* <div className="dropdown-menu dropdown-menu-end">
               <Link className="dropdown-item" to="/">
                 My profile

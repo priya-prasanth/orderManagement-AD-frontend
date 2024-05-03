@@ -102,9 +102,6 @@ const Sidebar = () => {
                 className="menu-link disabled"
                 to="/transaction"
               >
-                {/* <i className="icon fas fa-usd-circle"></i> */}
-
-                {/* <i className="fa-regular fa-money-check-dollar"></i> */}
                 <i className="icon fas fa-money-check-dollar"></i>
                 <span className="text">Transactions</span>
               </NavLink>

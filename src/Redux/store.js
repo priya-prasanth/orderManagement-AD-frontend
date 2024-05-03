@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import { userListReducer, userLoginReducer } from "./Reducers/userReducers";
+import { userListReducer, userLoginReducer, userRegisterReducer } from "./Reducers/userReducers";
 import {
   productCreateReducer,
   productDeleteReducer,
@@ -21,7 +21,8 @@ const reducer = combineReducers({
   productUpdate: productUpdateReducer,
   orderList: orderListReducer,
   orderDetails: orderDetailsReducer,
-  orderDeliver:orderDeliveredReducer,
+  orderDeliver: orderDeliveredReducer,
+  userRegister: userRegisterReducer,
 });
 
 
