@@ -81,7 +81,7 @@ const Register = () => {
                 Register
               </button>
               <p>
-                <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
+                <Link to={redirect ? `/?redirect=${redirect}` : "/"}>
                   I Have Account <strong>Login</strong>
                 </Link>
               </p>

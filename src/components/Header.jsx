@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import $ from "jquery";
+// import $ from "jquery";
 import { useDispatch } from "react-redux";
 import { logout } from "../Redux/Actions/userActions";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -8,24 +8,24 @@ import favimg from "../assets/images/favicon.png";
 
 const Header = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    $("[data-trigger]").on("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var offcanvas_id = $(this).attr("data-trigger");
-      $(offcanvas_id).toggleClass("show");
-    });
+  // useEffect(() => {
+  //   $("[data-trigger]").on("click", function (e) {
+  //     e.preventDefault();
+  //     e.stopPropagation();
+  //     var offcanvas_id = $(this).attr("data-trigger");
+  //     $(offcanvas_id).toggleClass("show");
+  //   });
 
-    $(".btn-asidminimizee-").on("click", function () {
-      if (window.innerWidth < 768) {
-        $("body").removeClass("aside-mini");
-        $(".navbar-aside").removeClass("show");
-      } else {
-        // minimize sidebar on desktop
-        $("body").toggleClass("aside-mini");
-      }
-    });
-  }, []);
+  //   $(".btn-asidminimizee-").on("click", function () {
+  //     if (window.innerWidth < 768) {
+  //       $("body").removeClass("aside-mini");
+  //       $(".navbar-aside").removeClass("show");
+  //     } else {
+  //       // minimize sidebar on desktop
+  //       $("body").toggleClass("aside-mini");
+  //     }
+  //   });
+  // }, []);
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -99,7 +99,7 @@ const Header = () => {
               <Dropdown.Menu>
                 {/* <Dropdown.Item href="/login">Login</Dropdown.Item> */}
                 <Dropdown.Item href="/register">Register</Dropdown.Item>
-                <Dropdown.Item href="/login" onClick={logoutHandler}>
+                <Dropdown.Item href="/" onClick={logoutHandler}>
                   Logout
                 </Dropdown.Item>
               </Dropdown.Menu>
