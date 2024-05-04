@@ -4,7 +4,7 @@ import "../responsive.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Provider, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HomeScreen from "./screens/HomeScreen.jsx";
 import ProductScreen from "./screens/productScreen.jsx";
 import OrderScreen from "./screens/OrderScreen.jsx";
@@ -34,42 +34,29 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* if () */}
+        {!userInfo || !userInfo.isAdmin ? (
+          <>
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </>
+        ) : (
+          <>
+            <Route exact path="/" element={<HomeScreen />} />
+            <Route path="/products" element={<ProductScreen />} />
+            <Route path="/orders" element={<OrderScreen />} />
+            <Route path="/order/:id" element={<OrderDetailScreen />} />
+            <Route path="/addproduct" element={<AddProduct />} />
+            <Route path="/users" element={<UsersScreen />} />
+            <Route path="/product/:id/edit" element={<ProductEditScreen />} />
+          </>
+        )}
         {/* <Route exact path="/" element={<PrivateRouter />}>
             <Route exact path="/" element={<HomeScreen />} />
           </Route> */}
         {/* <PrivateRouter path="/" element={<HomeScreen />} /> */}
-        <Route path="/" element={<PrivateRouter element={<HomeScreen />} />} />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/products"
-          element={<PrivateRouter element={<ProductScreen />} />}
-        />
-        <Route
-          path="/register"
-          element={<PrivateRouter element={<Register />} />}
-        />
-        <Route
-          path="/orders"
-          element={<PrivateRouter element={<OrderScreen />} />}
-        />
-        <Route
-          path="/order/:id"
-          element={<PrivateRouter element={<OrderDetailScreen />} />}
-        />
-        <Route
-          path="/addproduct"
-          element={<PrivateRouter element={<AddProduct />} />}
-        />
-        <Route
-          path="/users"
-          element={<PrivateRouter element={<UsersScreen />} />}
-        />
-        <Route
-          path="/product/:id/edit"
-          element={<PrivateRouter element={<ProductEditScreen />} />}
-        />
 
-        <Route path="*" element={<PrivateRouter element={<NotFound />} />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

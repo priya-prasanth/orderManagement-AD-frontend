@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import { login } from "../Redux/Actions/userActions";
 import Message from "../components/LoadingError/Error.jsx";
 import Loading from "../components/LoadingError/Loading.jsx";
@@ -22,7 +22,7 @@ const Login = () => {
     if (userInfo) {
       navigate("/");
     }
-  }, [userInfo, navigate]);
+  }, [userInfo, navigate, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();

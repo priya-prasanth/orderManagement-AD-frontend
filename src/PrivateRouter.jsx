@@ -9,7 +9,6 @@ const PrivateRouter = ({ element: Element, ...rest }) => {
   if (!userInfo || !userInfo.isAdmin) {
     return <Navigate to="/login" replace />;
   }
-
   return <Route {...rest} element={<Element />} />;
 };
 

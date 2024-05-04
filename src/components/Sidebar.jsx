@@ -88,6 +88,17 @@ const Sidebar = () => {
             <li className="menu-item">
               <NavLink
                 activeClassName="active"
+                className="menu-link"
+                to="/register"
+              >
+                <i className="icon fas fa-user"></i>
+                <span className="text">Register</span>
+              </NavLink>
+            </li>
+
+            <li className="menu-item">
+              <NavLink
+                activeClassName="active"
                 className="menu-link disabled"
                 to="/sellers"
               >

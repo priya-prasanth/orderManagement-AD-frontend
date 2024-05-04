@@ -33,7 +33,7 @@ const Register = () => {
   };
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div
         className="card shadow mx-auto"
         style={{
